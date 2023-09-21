@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,7 @@ namespace Test1
 {
     public class Chess
     {
+        Horse horse;
         public string[,] board = new string[8, 8];
         public Chess()
         {
@@ -35,9 +36,6 @@ namespace Test1
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
                     board[i, j] = $"[{i}][{j}]";
-                    board[figures[1].xPos, figures[1].yPos] = figures[1].symbol;
-                    board[figures[0].xPos, figures[0].yPos] = figures[0].symbol;
-                    board[figures[2].xPos, figures[2].yPos] = figures[2].symbol;
                     Console.Write($"{board[i, j]}\t");
                 }
                 Console.WriteLine("\n\n");
