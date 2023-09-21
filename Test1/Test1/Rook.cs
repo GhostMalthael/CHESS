@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,34 +8,32 @@ namespace Test1
 {
     internal class Rook : Figures
     {
-        Chess chess;
-        int newRookX;
-        int newRookY;
+        private new int xPos;
+        private new int yPos;
         public int NewRookX
         {
-            get { return newRookX; }
-            set { newRookX = value; }
+            get { return xPos; }
         }
         public int NewRookY
         {
-            get { return newRookY; }
-            set { newRookY = value; }
+            get { return yPos; }
         }
-        public Rook(string name, string symbol, int xPos, int yPos, Chess chess) : base(name, symbol, xPos, yPos)
+        public Rook(string name, string symbol, int xPos, int yPos) : base(name, symbol)
         {
-            this.chess = chess;
+            this.xPos = 7;
+            this.yPos = yPos;
         }
-        public void MoveRook()
+        public override void Hod()
         {
             Console.WriteLine("Куда переместить ладью");
-            bool secondX = int.TryParse(Console.ReadLine(), out newRookX);
-            bool secondY = int.TryParse(Console.ReadLine(), out newRookY);
+            bool secondX = int.TryParse(Console.ReadLine(), out xPos);
+            bool secondY = int.TryParse(Console.ReadLine(), out yPos);
             if(secondX && secondY == false)
             {
                 Console.WriteLine("Вы не выбрали поля или указан неверный формат, повторите попытку:");
             }
-            else if(this.xPos == newRookX && newRookY > this.yPos||
-                )
+            //else if(this.xPos == NewRookX && NewRookY > this.yPos||
+            //    )
         }
     }
 }
