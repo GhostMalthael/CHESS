@@ -8,11 +8,11 @@ namespace Test1
 {
     public class Chess
     {
-        Horse horse;
-        public string[,] board = new string[8, 8];
+        private Figures[,] board = new Figures[8,8];
         public Chess()
         {
-            
+            board[7, 1] = new Horse("Horse", "H", 7, 1);
+            board[7, 3] = new Queen("Queen", "Q", 7, 3);
         }
         
         public void Game()
@@ -24,19 +24,26 @@ namespace Test1
                 int choice = Convert.ToInt32(Console.ReadLine());
                 if (choice == 2)
                 {
+                    Console.WriteLine("куда переместить коня?");
                     NewBoard();
                 }
             }
         }
         public void NewBoard()
         {
-             string[,] board = new string[8, 8];
             for (int i = 0; i < board.GetLength(0); i++)
             {
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
-                    board[i, j] = $"[{i}][{j}]";
-                    Console.Write($"{board[i, j]}\t");
+                    if (board[i, j] != null)
+                    {
+                        Console.Write($"{board[i, j].Symbol}\t");
+                    }
+                    else
+                    {
+                        Console.Write($"[{i}][{j}]\t");
+                    }
+                   
                 }
                 Console.WriteLine("\n\n");
             }
