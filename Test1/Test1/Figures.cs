@@ -8,14 +8,16 @@ namespace Test1
 {
     abstract class Figures
     {
-        public string name;
-        public string symbol;
+        private string name;
+        private string symbol;
         public int xPos;
         public int yPos;
+        public string Name { get; private set; }
+        public string Symbol { get; private set; }
         public Figures(string name, string symbol)
         {
-            this.name = name;
-            this.symbol = symbol;
+            Name = name;
+            Symbol = symbol;
         }
         public abstract void Hod();
     }
